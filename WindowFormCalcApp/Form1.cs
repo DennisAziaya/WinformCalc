@@ -135,12 +135,39 @@ namespace WindowFormCalcApp
 
         private void btneq_Click(object sender, EventArgs e)
         {
-            this.operatorpreview1.Text = "=";
-            if (this.result.Text != "")
+            double fn;
+            double sn;
+            double r;
+
+            double.TryParse(this.result.Text, out fn);
+            double.TryParse(this.numpreview1.Text, out sn);
+            r = 0;
+
+            if (this.operatorpreview1.Text == this.btnplus.Text)
             {
-                numpreview1.Text = this.result.Text;
+                r = fn + sn;
             }
-            this.result.ResetText();
+
+
+            if (this.operatorpreview1.Text == this.btnsub.Text)
+            {
+                r = sn - fn;
+            }
+
+            if (this.operatorpreview1.Text == this.btnmultiply.Text)
+            {
+                r = fn * sn;
+            }
+
+            if (this.operatorpreview1.Text == this.btndivide.Text)
+            {
+                r = sn / fn;
+            }
+
+            this.result.Text = r.ToString();
+            this.operatorpreview1.ResetText();
+            this.numpreview1.ResetText();
+            
         }
     }
 }
