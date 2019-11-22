@@ -62,6 +62,8 @@ namespace WindowFormCalcApp
 
         private void btn7_Click(object sender, EventArgs e)
         {
+
+
             this.result.Text += '7';
         }
 
@@ -80,11 +82,7 @@ namespace WindowFormCalcApp
             this.result.Text += '0';
         }
 
-        private void result_Click(object sender, EventArgs e)
-        {
-
-        }
-
+  
         private void btnperiod_Click(object sender, EventArgs e)
         {
             this.result.Text += '.';
@@ -168,6 +166,89 @@ namespace WindowFormCalcApp
             this.operatorpreview1.ResetText();
             this.numpreview1.ResetText();
             
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.timelabel.Text = DateTime.UtcNow.ToString();
+        }
+
+        private void Calc_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            MessageBox.Show("Are You Sure?");
+        }
+
+        private void btn0_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.NumPad0:
+                    this.result.Text += '0';
+                    break;
+                
+                case Keys.NumPad1:
+                    this.result.Text += '1';
+                    break;
+
+                case Keys.NumPad2:
+                    this.result.Text += '2';
+                    break;
+                
+                case Keys.NumPad3:
+                    this.result.Text += '3';
+                    break;
+                
+                case Keys.NumPad4:
+                    this.result.Text += '4';
+                    break;
+                
+                case Keys.NumPad5:
+                    this.result.Text += '5';
+                    break;
+                
+                case Keys.NumPad6:
+                    this.result.Text += '6';
+                    break;
+                
+                case Keys.NumPad7:
+                    this.result.Text += '7';
+                    break;
+                
+                case Keys.NumPad8:
+                    this.result.Text += '8';
+                    break;
+                
+                case Keys.NumPad9:
+                    this.result.Text += '9';
+                    break;
+                
+                case Keys.OemPeriod:
+                    this.result.Text += '.';
+                    break;
+                
+                case Keys.Subtract:
+                    btnsub_Click(sender, e);
+                    break;
+                
+                case Keys.Add:
+                    btnplus_Click(sender, e);
+                    break;
+                
+                case Keys.Multiply:
+                    btnmultiply_Click(sender,e);
+                    break;
+
+                case Keys.Divide:
+                    btndivide_Click(sender, e);
+                    break;
+
+                case Keys.Execute:
+                    btneq_Click(sender, e);
+                    break;
+            }
+
+            
+
         }
     }
 }
